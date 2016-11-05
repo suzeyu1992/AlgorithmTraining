@@ -1,0 +1,15 @@
+# OSX
+.DS_Store
+
+.idea/
+
+out/
+
+
+
+
+# Java class files
+*.class
+
+
+
