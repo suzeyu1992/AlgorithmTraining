@@ -48,7 +48,7 @@ public class AskBinaryOne {
     public static int CountOne(byte source){
         int count = 0;
         // 首先把接收的二进制转换成正数
-        int temp = (source +256)%256;
+        int temp = (source + 256)%256;
         while (temp != 0){
             if (Math.abs((temp%2)) == 1 ){
                 count++;
@@ -90,6 +90,7 @@ public class AskBinaryOne {
      */
     public static int countThree(byte source){
         int count = 0;
+
         int temp = (source +256)%256;
 
         while (temp > 0){
