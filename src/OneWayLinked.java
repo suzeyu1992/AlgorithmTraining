@@ -27,9 +27,13 @@ public class OneWayLinked {
 
         System.out.println("全部元素: "+linked.toString());
 
-        boolean remove = remove(p2, linked);
+//        boolean remove = remove(p2, linked);
+//
+//        System.out.println(remove? "删除成功\r\n"+linked.toString() : "没有要打印的数据");
 
-        System.out.println(remove? "删除成功\r\n"+linked.toString() : "没有要打印的数据");
+        revert(linked);
+        System.out.println("反转元素: "+linked.toString());
+
 
 
     }
@@ -60,6 +64,30 @@ public class OneWayLinked {
         }
 
         return false;
+    }
+
+
+    /**
+     * 单向链表只有头结点, 怎么遍历一遍, 让元素反转
+     */
+    public static void revert(SimpleLinked linkeds){
+
+        SimpleLinked.Node tempNode = linkeds.mHeadNode;
+
+        while (linkeds.mHeadNode != null){          // 条件只是为了防止集合为空
+            SimpleLinked.Node nextNode = linkeds.mHeadNode.mNext;
+            if (nextNode == null ) {
+                linkeds.mHeadNode = tempNode;
+                break;      // 循环结束
+            }
+            linkeds.mHeadNode.mNext = nextNode.mNext;
+            nextNode.mNext = tempNode;
+
+            tempNode = nextNode;
+
+
+        }
+
     }
 
 
