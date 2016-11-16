@@ -21,7 +21,11 @@ public class InsertSort {
 
     public static void main(String arg[]){
 
-        System.out.println("插入排序\n"+Arrays.toString(directInsert(Arrays.copyOf(sArrays, sArrays.length))));
+        System.out.println("直接插入排序\n"+Arrays.toString(directInsert(Arrays.copyOf(sArrays, sArrays.length))));
+
+        System.out.println("希尔排序\n"+Arrays.toString(directInsert(Arrays.copyOf(sArrays, sArrays.length))));
+
+
     }
 
 
@@ -65,6 +69,42 @@ public class InsertSort {
     }
 
 
+    /**
+     *  希尔排序
+     */
+    public static int[] shellSort(int []raw ){
+        // 进行哨兵数组的创建 并进行数据迁移
+        int[] ints = new int[raw.length+1];
+        System.arraycopy(raw, 0, ints, 1, raw.length);
+
+        int i, j;
+        int increment = raw.length;
+
+        do {
+            increment = increment/3+1;      // 增量序列
+
+            for (i = increment+1; i<ints.length ; i++){
+                if (ints[i] < ints[i-increment]){
+                    ints[0] = ints[i];      // 数组暂存
+                    for (j=i-increment; (j>0) && (ints[0]<ints[j]) ; j-= increment){
+                        ints[j+increment] = ints[i];        // 记录后移
+                    }
+
+                    ints[j+increment] = ints[0];    // 插入
+                }
+            }
+        }while (increment > 1);
+
+
+
+
+
+        // 把带哨兵的数组中除了哨兵位其余都复制到传入的数组
+        System.arraycopy(ints, 1, raw, 0, raw.length);
+
+        return raw;
+
+    }
 
 
 
