@@ -28,9 +28,7 @@ public class InsertSort {
         System.out.println("堆排序\n"+Arrays.toString(heapSort(Arrays.copyOf(sArrays, sArrays.length))));
 
 
-        int[] tem = {0, 50, 10, 90, 30 ,70 ,40, 80, 60,20 };
-        HeadAdjust(tem,4, 9 );
-        System.out.println("测试: "+Arrays.toString(tem));
+
     }
 
 
@@ -91,8 +89,8 @@ public class InsertSort {
             for (i = increment+1; i<ints.length ; i++){
                 if (ints[i] < ints[i-increment]){
                     ints[0] = ints[i];      // 数组暂存
-                    for (j=i-increment; (j>0) && (ints[0]<ints[j]) ; j-= increment){
-                        ints[j+increment] = ints[i];        // 记录后移
+                    for (j=i-increment; (j>0) && (ints[0]<ints[j]) ; j -= increment){
+                        ints[j+increment] = ints[j];        // 记录后移
                     }
 
                     ints[j+increment] = ints[0];    // 插入
