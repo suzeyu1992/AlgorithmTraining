@@ -10,7 +10,7 @@ import java.util.function.IntToDoubleFunction;
  * Blog   :  http://szysky.com
  * GitHub :  https://github.com/suzeyu1992
  * ClassDescription :
- *              插入排序
+ *              排序
  */
 public class InsertSort {
 
@@ -23,9 +23,14 @@ public class InsertSort {
 
         System.out.println("直接插入排序\n"+Arrays.toString(directInsert(Arrays.copyOf(sArrays, sArrays.length))));
 
-        System.out.println("希尔排序\n"+Arrays.toString(directInsert(Arrays.copyOf(sArrays, sArrays.length))));
+        System.out.println("希尔排序\n"+Arrays.toString(shellSort(Arrays.copyOf(sArrays, sArrays.length))));
+
+        System.out.println("堆排序\n"+Arrays.toString(heapSort(Arrays.copyOf(sArrays, sArrays.length))));
 
 
+        int[] tem = {0, 50, 10, 90, 30 ,70 ,40, 80, 60,20 };
+        HeadAdjust(tem,4, 9 );
+        System.out.println("测试: "+Arrays.toString(tem));
     }
 
 
@@ -106,6 +111,67 @@ public class InsertSort {
 
     }
 
+
+    /**
+     *  堆排序: 就是利用大顶堆 进行排序的方法
+     *
+     *  基本思想: 将待排序的序列构成一个大顶堆, 此时整个序列的最大值就是堆顶的根节点. 将它移走(就是将其与数组的末尾元素交换, 此时末尾元素就是最大值)
+     *          然后将剩余的n-1个序列重新构成一个队, 这样就会得到n个元素的次大值, 如此反复即可得到一个有序序列.
+     *
+     */
+    public static int[] heapSort(int []raw){
+
+        int[] ints = new int[raw.length+1];
+        System.arraycopy(raw, 0, ints, 1, raw.length);
+
+        int i;
+        for (i = ints.length/2; i>0; i--){
+            HeadAdjust(ints, i, ints.length);
+        }
+
+        for (i = ints.length-1; i>2; i--){
+            swap(ints, 1, i);
+            HeadAdjust(ints, 1, i-1);
+        }
+        System.arraycopy(ints, 1, raw, 0, raw.length);
+        return raw;
+
+    }
+
+
+    private static void HeadAdjust(int[] ins, int s, int m){
+
+        int temp, j;
+        temp = ins[s];
+
+        for (j=2*s; j<m; j*=2){
+            if ((j<m)  &&  (ins[j]<ins[j+1]))
+                j++;
+
+            if (temp >= ins[j])
+                break;
+
+            ins[s] = ins[j];
+
+            s = j;
+        }
+
+        ins[s] = temp;
+    }
+
+    public  static void swap(int[] ins, int sw1, int sw2){
+
+        // 使用异或的特性  --> 对同一个数异或一个值.  这个数不变
+        ins[sw1] = ins[sw1]^ins[sw2];
+        ins[sw2] = ins[sw1]^ins[sw2];
+        ins[sw1] = ins[sw1]^ins[sw2];
+
+
+//        // 使用第三方变量替换
+//        int temp = ins[sw1];
+//        ins[sw1] = ins[sw2];
+//        ins[sw2] = temp;
+    }
 
 
 }
