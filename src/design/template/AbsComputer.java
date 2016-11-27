@@ -9,7 +9,7 @@ package design.template;
  */
 public abstract class AbsComputer {
 
-    protected void powerOn(){
+    private void powerOn(){
         System.out.println("开启电源");
     }
 

@@ -9,7 +9,7 @@ package design.facade;
  */
 public class PhoneImpl implements Phone {
     @Override
-    public void dail() {
+    public void call() {
         System.out.println("打电话");
     }
 

@@ -9,6 +9,6 @@ package design.facade;
  */
 public interface Phone {
 
-    void dail();    // 打电话
+    void call();    // 打电话
     void hangup();  // 挂断
 }

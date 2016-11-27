@@ -15,7 +15,7 @@ public class MobilePhone {
     public void  videoChar(){
         System.out.println("--> 视频聊天连接中");
         mCamera.open();
-        mPhone.dail();
+        mPhone.call();
     }
 
     public void  hangup(){

@@ -9,9 +9,8 @@ package design.visitor;
  */
 public class Client {
 
-    // 构建报表
-
     public static void main(String args[]){
+        // 构建报表
         BusinessReport report = new BusinessReport();
 
         System.out.println("----------给CEO看的报表----------");
