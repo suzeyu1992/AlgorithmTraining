@@ -1,0 +1,1 @@
+> 六大原则之单一职责 Single Responsibility Principle
