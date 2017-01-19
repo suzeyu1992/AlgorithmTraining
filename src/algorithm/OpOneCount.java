@@ -1,3 +1,5 @@
+package algorithm;
+
 /**
  * Author :  suzeyu
  * Time   :  2016-11-09  下午11:46

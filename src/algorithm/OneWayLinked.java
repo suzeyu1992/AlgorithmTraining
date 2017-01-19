@@ -1,3 +1,5 @@
+package algorithm;
+
 import java.rmi.Remote;
 import java.util.LinkedList;
 
