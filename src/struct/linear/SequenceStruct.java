@@ -46,7 +46,7 @@ public class  SequenceStruct<T> {
             // 可以直接插入元素到数组
             mDatas[++mLastElementIndex] = addObject;
 
-            System.out.println("数据集合扩容完毕, 当前集合大小为:" +mDatas.length+"    数据元素为:"+ Arrays.toString(mDatas));
+            System.out.println("数据集合扩容完毕, 当前集合大小为:" +mDatas.length+"    数据元素为:"+ toString());
         }else {
 
             // 可以直接插入元素到数组
@@ -82,7 +82,7 @@ public class  SequenceStruct<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i <= mLastElementIndex; i++) {
-            sb.append(((T)mDatas[i]).toString()).append('\t').append(",");
+            sb.append(((T)mDatas[i]).toString()+",").append('\t');
         }
 
         return  sb.toString();
